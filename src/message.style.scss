@@ -1,0 +1,33 @@
+.message {
+  width: fit-content;
+  position: relative;
+  margin: 20px;
+  .message-head{
+    display: flex;
+    i {
+      font-size: 6px!important;
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+  }
+  .message-body{
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+}
+
+.guest-message {
+  .message-body{
+    background: darkgray;
+  }
+}
+
+.user-message {
+  margin-left: auto!important;
+  .message-body{
+    background: dodgerblue;
+    color: white;
+  }
+}
