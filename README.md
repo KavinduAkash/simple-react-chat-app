@@ -4,13 +4,13 @@
  
 ## Dependencies
 
-React.js
+[https://reactjs.org/](React.js)
 
-node-sass
+[https://www.npmjs.com/package/node-sass](node-sass)
 
-semantic-ui react
+[https://react.semantic-ui.com/](semantic-ui react)
 
-firebase
+[https://firebase.google.com/](firebase)
 
 ### How to install dependencies
 use following command to install dependencies
