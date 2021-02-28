@@ -11,7 +11,7 @@ class Message extends React.Component {
                 <div className={'message-head text-center'}>
                     <div>{data.username}</div>
                     <Icon name='circle' />
-                    <div>{data.timestamp.toString()}</div>
+                    {/*<div>{data.timestamp}</div>*/}
                 </div>
                 <div className={'message-body'}>{data.message}</div>
             </div>
