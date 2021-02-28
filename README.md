@@ -13,7 +13,7 @@ semantic-ui react
 firebase
 
 ### How to install dependencies
-use follow command to install dependencies
+use following command to install dependencies
 
 `npm install`
 
