@@ -7,7 +7,7 @@ const firebaseApp = firebase.initializeApp({
     storageBucket: '<your-storage-bucket>',
     messagingSenderId: '<your-sender-id>',
     appId: '<your-app-id>',
-    measurementId: <your-measurement-id>
+    measurementId: '<your-measurement-id>'
 });
 
 const db = firebaseApp.firestore();

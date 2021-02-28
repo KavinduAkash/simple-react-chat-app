@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Message from "./Message";
 import {Button, Icon, Input} from "semantic-ui-react";
+import firebase from "firebase/app";
+import db from './Firebase';
 
 class App extends React.Component{
 
@@ -22,7 +24,17 @@ class App extends React.Component{
             user: prompt("What is your username?")
         });
 
+        console.log("UNM");
+        db.collection('messages').orderBy('timestamp').onSnapshot(snapshot => {
+            this.setState({message_arr: []})
+            snapshot.docs.map(doc=>{
+                console.log("M: ",doc);
+                this.setState({message_arr: [...this.state.message_arr, doc.data()]})
+            })
+        })
     }
+
+
 
     sendMessage = (event) => {
         event.preventDefault();
@@ -30,16 +42,22 @@ class App extends React.Component{
             let obj = {
                 username: this.state.user,
                 message: this.state.message,
-                timestamp: new Date()
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
             };
 
-            let arr = this.state.message_arr;
-            arr.push(obj);
-            this.setState({
-                // message_arr: [...this.state.message_arr,obj],
-                message_arr: arr,
-                message: ""
+            db.collection('messages').add({
+                username: this.state.user,
+                    message: this.state.message,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
             });
+
+            // let arr = this.state.message_arr;
+            // arr.push(obj);
+            // this.setState({
+            //     // message_arr: [...this.state.message_arr,obj],
+            //     message_arr: arr,
+            //     message: ""
+            // });
         } else {
             alert("Please, Enter a message!")
         }
